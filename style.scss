@@ -1,0 +1,329 @@
+// lear
+// Easybank Landing Page
+
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@200&display=swap");
+
+// Colors
+$darkBlue: #2d314d;
+$limeGreen: #31d35c;
+$brightCyan: #2bb7da;
+$grayishBlue: #9698a6;
+$lightGrayishBlue: #f3f4f6;
+$veryLightGray: #fafafa;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Public Sans", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: $veryLightGray;
+}
+
+html {
+  scrollbar-color: $veryLightGray linear-gradient($brightCyan, $limeGreen);
+}
+
+// Global Styles
+.btn {
+  padding: 1rem 2rem;
+  background-image: linear-gradient(to right, $limeGreen, $brightCyan);
+  color: $veryLightGray;
+  text-decoration: none;
+  border-radius: 2rem;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.sub-heading {
+  font-size: 2.2rem;
+  font-weight: 200;
+  margin-bottom: 1rem;
+}
+
+.text {
+  color: $grayishBlue;
+  line-height: 1.6rem;
+  font-size: 1.05rem;
+}
+
+.row {
+  display: grid;
+  grid-gap: 3rem;
+  margin: 4rem 0;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+// Navigation
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 10%;
+  background-color: #fff;
+
+  .close-links,
+  .open-links {
+    display: none;
+  }
+
+  .links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+
+    li {
+      display: inline-block;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -2rem;
+        width: 0;
+        height: 4px;
+        background-color: $limeGreen;
+        display: block;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+      a {
+        text-decoration: none;
+        color: $grayishBlue;
+      }
+    }
+  }
+}
+
+// Header Section
+.header {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  gap: 3rem;
+
+  & > div {
+    width: 100%;
+  }
+
+  div:first-of-type {
+    padding-top: 10%;
+  }
+
+  .title {
+    font-size: 4rem;
+    font-weight: 200;
+  }
+
+  .text {
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .intro {
+    position: absolute;
+    right: -20%;
+    top: 0;
+    z-index: -1;
+    width: 70%;
+  }
+
+  .phones {
+    z-index: -1;
+    width: 90%;
+  }
+}
+
+// Why Section
+.why {
+  padding: 3rem 10%;
+  background-color: $lightGrayishBlue;
+
+  h3 {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin: 2rem 0;
+  }
+}
+
+// Articles Section
+.articles {
+  padding: 3rem 10%;
+  background-color: $veryLightGray;
+
+  .item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    & > div {
+      background-color: #fff;
+      padding: 1.5rem;
+
+      .author {
+        font-size: 0.9rem;
+        color: $grayishBlue;
+        font-weight: 400;
+      }
+
+      h3 {
+        font-size: 1.4rem;
+        font-weight: 300;
+        margin: 0.8rem 0;
+      }
+
+      .text {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// Footer Section
+.footer {
+  padding: 3rem 10%;
+  background-color: $darkBlue;
+
+  &.row {
+    margin: 0 !important;
+  }
+
+  .logo {
+    filter: brightness(10);
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin-top: 4rem;
+  }
+
+  a:not(.btn) {
+    text-decoration: none;
+    color: $veryLightGray;
+
+    &:hover {
+      color: $limeGreen;
+    }
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    &.last-footer {
+      align-items: flex-end;
+
+      .copyright {
+        margin-top: 4rem;
+        color: $grayishBlue;
+      }
+    }
+  }
+}
+
+// For Smaller Devices
+@media screen and (max-width: 1048px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .header {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-left: 0 !important;
+    gap: 0;
+
+    div:first-of-type {
+      padding: 0 5% 10% !important;
+    }
+
+    .phones {
+      width: 50%;
+    }
+
+    .intro {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 10%;
+    }
+  }
+
+  .nav-bar .btn {
+    display: none;
+  }
+
+  .close-links,
+  .open-links {
+    display: block !important;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .links {
+    position: fixed;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: flex-start !important;
+    width: 160px;
+    height: 100vh;
+    top: 0;
+    right: -160px;
+    background-color: #fff;
+    transition: 0.5s;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .row {
+    grid-template-columns: 1fr !important;
+
+    .item {
+      align-items: center !important;
+    }
+  }
+
+  .footer.row {
+    gap: 2rem !important;
+
+    .item {
+      gap: 2rem !important;
+    }
+  }
+
+  .sub-heading {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 3.5rem !important;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .title {
+    font-size: 3rem !important;
+  }
+
+  .phones {
+    width: 70% !important;
+  }
+}
