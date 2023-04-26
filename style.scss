@@ -167,8 +167,9 @@ html {
 
     img {
       width: 100%;
-      height: 100%;
+      height: 180px;
       display: block;
+      object-fit: cover;
     }
 
     & > div {
@@ -246,6 +247,10 @@ html {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
+  .articles .item img {
+    height: 200px;
+  }
+
   .header {
     flex-direction: column-reverse;
     text-align: center;
@@ -316,6 +321,10 @@ html {
   .title {
     font-size: 3.5rem !important;
   }
+
+  .articles .item img {
+    height: 260px;
+  }
 }
 
 @media screen and (max-width: 428px) {
@@ -325,5 +334,9 @@ html {
 
   .phones {
     width: 70% !important;
+  }
+
+  .articles .item img {
+    height: 220px;
   }
 }
